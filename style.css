@@ -7,6 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 80px;
+  
 }
 
 .grid-container {
@@ -26,7 +27,7 @@ body {
   display: flex;
   justify-content: flex-end;
   background-color: rgb(54, 54, 54);
-  color: blanchedalmond;
+  color: #add8e6;
 }
 
 #item0{
@@ -60,14 +61,15 @@ body {
 
 button {
   cursor: pointer;
-  background-color: rgb(135, 151, 168);
+  background-color: rgb(74, 80, 85);
   border-radius: 40px;
   font-weight: 700;
   font-size: 20px;
   border-style: none;
+  color: #add8e6;
 }
 button:hover {
-  background-color: rgb(166, 179, 192);
+  background-color: rgb(133, 146, 158);
 }
 
 #item2,
@@ -77,5 +79,5 @@ button:hover {
 #item13,
 #item17,
 #item4 {
-  background-color: rgb(105, 120, 184);
+  background-color: rgb(68, 80, 131);
 }
