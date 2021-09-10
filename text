@@ -1,0 +1,28 @@
+we need:
+- first input number 
+    DONE    when a button is clicked the number gets displayed in the lower display 
+    DONE    append number when another button clicked
+            only start memorizing when an operator button has been clicked 
+- memorize operator
+             addEventListener that memorizes the operator and the first input number 
+- second input number
+            when a button is clicked the first number moves to the upper display (incl operator)
+            display in lower display
+             append number 
+- repeat this for every number that is used after an operator has been clicked 
+- = button activates calculation
+             addEventListener that starts the calculation function 
+- calculate 
+- return solution to lower display 
+- clear
+            delete all memorized numbers/inputs
+            delete display value 
+- delete 
+            delete last appended number 
+
+
+
+optional:
+- add .s 
+- add decimal numbers
+- round solution ?
