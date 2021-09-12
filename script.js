@@ -3,9 +3,11 @@ let numberBtns = Array.from(document.querySelectorAll("[data-number]"));
 let clearBtn = document.querySelector("[data-clear]");
 let deleteBtn = document.querySelector("[data-delete]");
 let equalBtn = document.querySelector("[data-equal]");
+let dot = document.querySelector("[data-decimal");
 let operator = "";
 let a = "";
 let b = "";
+let solution = "x";
 
 let upper = document.querySelector(".upper");
 let lower = document.querySelector(".lower");
@@ -14,7 +16,11 @@ equalBtn.addEventListener("click", () => calculate(operator, a, b));
 
 numberBtns.map((numberBtn) => {
   numberBtn.addEventListener("click", (e) => {
-    lower.innerText += e.target.innerText;
+    if (solution == lower.innerText) {
+      lower.innerText = e.target.innerText;
+    } else {
+      lower.innerText += e.target.innerText;
+    }
   });
 });
 
@@ -25,8 +31,8 @@ operatorBtns.map((operatorBtn) => {
       upper.innerText = upper.innerText + lower.innerText + e.target.innerText;
       lower.innerText = "";
     } else if (upper.innerText !== "") {
-      a = parseInt(upper.innerText.slice(0, -1));
-      b = parseInt(lower.innerText);
+      a = parseFloat(upper.innerText.slice(0, -1));
+      b = parseFloat(lower.innerText);
       operator = upper.innerText[upper.innerText.length - 1];
       if (operator === "+") {
         upper.innerText = add(a, b) + e.target.innerText;
@@ -67,26 +73,31 @@ function calculate(operator, a, b) {
   if (operator === "+") {
     lower.innerText = add(a, b);
     upper.innerText = "";
+    solution = add(a, b);
   } else if (operator === "-") {
     lower.innerText = subtract(a, b);
     upper.innerText = "";
+    solution = subtract(a, b);
   } else if (operator === "×") {
     lower.innerText = multiply(a, b);
     upper.innerText = "";
+    solution = multiply(a, b);
+  } else if (operator === "÷" && lower.innerText === "0") {
+    lower.innerText = "You can't divide by 0";
   } else if (operator === "÷") {
     lower.innerText = divide(a, b);
     upper.innerText = "";
+    solution = divide(a, b);
   }
-
-  // zahlen sollen nicht an das ergebnisse angehängt werden
-  //funktioniert noch nicht
-
-  numberBtns.map((numberBtn) => {
-    numberBtn.addEventListener("click", (e) => {
-      lower.innerText = e.target.innerText;
-    });
-  });
 }
+
+// calc with dot does not work yet
+dot.addEventListener("click", (e) => {
+  let inputArray = Array.from(lower.innerText);
+  if (inputArray.includes(".") === false) {
+    lower.innerText += e.target.innerText;
+  }
+});
 
 function add(a, b) {
   let sum = a + b;
