@@ -78,11 +78,11 @@ function calculate(operator, a, b) {
     upper.innerText = "";
   }
 
-  //  zahlen sollen nicht an das ergebnisse angehängt werden
-  //funktioniert noch nicht 
+  // zahlen sollen nicht an das ergebnisse angehängt werden
+  //funktioniert noch nicht
 
   numberBtns.map((numberBtn) => {
-    numberBtn.addEventListener("click", () => {
+    numberBtn.addEventListener("click", (e) => {
       lower.innerText = e.target.innerText;
     });
   });
