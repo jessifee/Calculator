@@ -28,7 +28,7 @@ operatorBtns.map((operatorBtn) => {
   operatorBtn.addEventListener("click", (e) => {
     operator = e.target.innerText;
     if (upper.innerText == "") {
-      upper.innerText = upper.innerText + lower.innerText + e.target.innerText;
+      upper.innerText += lower.innerText + e.target.innerText;
       lower.innerText = "";
     } else if (upper.innerText !== "") {
       a = parseFloat(upper.innerText.slice(0, -1));
@@ -47,7 +47,7 @@ operatorBtns.map((operatorBtn) => {
         upper.innerText = divide(a, b) + e.target.innerText;
         lower.innerText = "";
       }
-      operator = e.target.innerText;
+      
     }
   });
 });
@@ -67,8 +67,8 @@ deleteBtn.addEventListener("click", (e) => {
 });
 
 function calculate(operator, a, b) {
-  a = parseInt(upper.innerText.slice(0, -1)); //first input without the operator
-  b = parseInt(lower.innerText);
+  a = parseFloat(upper.innerText.slice(0, -1)); //first input without the operator
+  b = parseFloat(lower.innerText);
 
   if (operator === "+") {
     lower.innerText = add(a, b);
@@ -91,7 +91,6 @@ function calculate(operator, a, b) {
   }
 }
 
-// calc with dot does not work yet
 dot.addEventListener("click", (e) => {
   let inputArray = Array.from(lower.innerText);
   if (inputArray.includes(".") === false) {
@@ -101,20 +100,24 @@ dot.addEventListener("click", (e) => {
 
 function add(a, b) {
   let sum = a + b;
+
   return sum;
 }
 
 function subtract(a, b) {
   let diff = a - b;
+
   return diff;
 }
 
 function multiply(a, b) {
   let mult = a * b;
+
   return mult;
 }
 
 function divide(a, b) {
   let quot = a / b;
+
   return quot;
 }
